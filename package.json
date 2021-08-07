@@ -1,0 +1,20 @@
+{
+	"name": "CameraControl",
+	"version": "0.1.5",
+	"main": "main.js",
+	"scripts": {
+		"dev": "electron .",
+		"build": "npm run build:osx && npm run build:win",
+		"build:osx": "rimraf dist && electron-packager . \"Camera Control\" --macos --icon=assets/osx/icon.icns",
+		"build:win": "rimraf dist && electron-packager . \"Camera Control\" --windows --icon=assets/win/icon.ico",
+		"pack": "npm run pack:osx && npm run pack:win",
+		"pack:osx": "npm run build:osx && electron-builder --macos --config=packager.json",
+		"pack:win": "npm run build:win && electron-builder --win --config=packager.json"
+	},
+	"devDependencies": {
+		"electron": "^13.1.7",
+		"electron-builder": "^22.11.7",
+		"electron-packager": "^15.3.0",
+		"rimraf": "^3.0.2"
+	}
+}
